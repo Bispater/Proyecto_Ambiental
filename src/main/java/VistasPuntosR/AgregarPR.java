@@ -4,6 +4,10 @@
  */
 package VistasPuntosR;
 
+/**
+ *
+ * @author Byron
+ */
 public class AgregarPR extends javax.swing.JPanel {
 
     /**
