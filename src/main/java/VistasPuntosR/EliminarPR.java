@@ -4,15 +4,8 @@
  */
 package VistasPuntosR;
 
-/**
- *
- * @author Byron
- */
 public class EliminarPR extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Eliminar
-     */
     public EliminarPR() {
         initComponents();
     }

@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package VistaMain;
-import VistasAdministrador.AgregarAdmin;
-import VistasAdministrador.CambiarPassword;
+import VistasAdministrador.*;
 import VistasNoticias.*;
 import VistasPuntosR.*;
 import java.awt.BorderLayout;
@@ -209,7 +208,7 @@ public class AdminFuncion extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemEliminarNActionPerformed
 
     private void ItemAgregarPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemAgregarPRActionPerformed
-        AgregarAdmin addPR = new AgregarAdmin();
+        AgregarPR addPR = new AgregarPR();
         MostrarPanel(addPR);
     }//GEN-LAST:event_ItemAgregarPRActionPerformed
 
@@ -219,11 +218,11 @@ public class AdminFuncion extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemEliminarPRActionPerformed
 
     private void ItemActualizarPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemActualizarPRActionPerformed
-        ActualizarPR UpdatePR = new ActualizarPR();
-        MostrarPanel(UpdatePR);
+        ActualizarPR1 updatePR = new ActualizarPR1();
+        MostrarPanel(updatePR);
     }//GEN-LAST:event_ItemActualizarPRActionPerformed
 
-    private void MostrarPanel(JPanel p){
+    public void MostrarPanel(JPanel p){
         p.setSize(500,377);
         p.setLocation(0,0);
         

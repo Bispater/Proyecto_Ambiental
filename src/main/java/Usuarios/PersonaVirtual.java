@@ -1,14 +1,8 @@
 package Usuarios;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
-public class PersonaVirtual { //Clase padre - superClase
+public abstract class PersonaVirtual {
     private String Nombre;
-
     private String Rut;
-
-    Scanner entrada = new Scanner(System.in);
 
     public PersonaVirtual (String nombre, String run){
         this.Nombre = nombre;
@@ -19,8 +13,6 @@ public class PersonaVirtual { //Clase padre - superClase
         return Nombre;
     }
 
-
-
     public String getRut() {
         return Rut;
     }
@@ -29,12 +21,12 @@ public class PersonaVirtual { //Clase padre - superClase
         this.Nombre = nombre;
     }
 
-
     public void setRut(String rut) {
         this.Rut = rut;
     }
 
-    public boolean ValidarPersona(){
+    public abstract void CrearPersona();
+/*    public boolean ValidarPersona(){
 
         int contFail=0;
 
@@ -59,9 +51,9 @@ public class PersonaVirtual { //Clase padre - superClase
         }
 
     return true ;
-    }
+    }*/
 
-    public void CrearPersona() {
+    /*{
         int id, contFail = 0;
         int flag = 0;
         String Nombre, Rut;
@@ -99,5 +91,5 @@ public class PersonaVirtual { //Clase padre - superClase
         if (flag != 1) {
             setRut(Rut);
         }
-    }
+    }*/
 }
