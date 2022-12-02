@@ -4,9 +4,16 @@
  */
 package VistasPuntosR;
 
-public class ActualizarPR2 extends javax.swing.JPanel {
+/**
+ *
+ * @author Byron
+ */
+public class ActualizarPR extends javax.swing.JPanel {
 
-    public ActualizarPR2() {
+    /**
+     * Creates new form ActualizarPR
+     */
+    public ActualizarPR() {
         initComponents();
     }
 
@@ -38,8 +45,10 @@ public class ActualizarPR2 extends javax.swing.JPanel {
         LabelErrorCiudad = new javax.swing.JLabel();
         LabelCapacidad2 = new javax.swing.JLabel();
         LabelCapacidad1 = new javax.swing.JLabel();
+        LabelID = new javax.swing.JLabel();
         LabelCapacidad4 = new javax.swing.JLabel();
         FieldCapacidad1 = new javax.swing.JTextField();
+        FieldIdentificador = new javax.swing.JTextField();
         LabelErrorCapacidad1 = new javax.swing.JLabel();
 
         PanelActualizarPR.setBackground(new java.awt.Color(201, 234, 253));
@@ -57,7 +66,7 @@ public class ActualizarPR2 extends javax.swing.JPanel {
         LabelPeriodoV.setText("Periodo vaciado:");
         LabelPeriodoV.setMaximumSize(new java.awt.Dimension(100, 40));
         LabelPeriodoV.setPreferredSize(new java.awt.Dimension(100, 40));
-        PanelActualizarPR.add(LabelPeriodoV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 140, -1));
+        PanelActualizarPR.add(LabelPeriodoV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 140, -1));
 
         LabelTReciclaje.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         LabelTReciclaje.setForeground(new java.awt.Color(76, 168, 207));
@@ -78,7 +87,7 @@ public class ActualizarPR2 extends javax.swing.JPanel {
         Titulo2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Titulo2.setForeground(new java.awt.Color(0, 0, 51));
         Titulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Titulo2.setText("Actualizar punto de reciclaje");
+        Titulo2.setText("Agregar punto de reciclaje");
 
         javax.swing.GroupLayout PanelTituloLayout = new javax.swing.GroupLayout(PanelTitulo);
         PanelTitulo.setLayout(PanelTituloLayout);
@@ -133,7 +142,7 @@ public class ActualizarPR2 extends javax.swing.JPanel {
                 FieldVaciadoActionPerformed(evt);
             }
         });
-        PanelActualizarPR.add(FieldVaciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, 30));
+        PanelActualizarPR.add(FieldVaciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, -1, 30));
 
         FieldTReciclaje.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         FieldTReciclaje.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -170,7 +179,7 @@ public class ActualizarPR2 extends javax.swing.JPanel {
                 AgregarButtonActionPerformed(evt);
             }
         });
-        PanelActualizarPR.add(AgregarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, -1, -1));
+        PanelActualizarPR.add(AgregarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
 
         LabelErrorID.setForeground(new java.awt.Color(255, 0, 0));
         LabelErrorID.setText("jLabel1");
@@ -191,7 +200,7 @@ public class ActualizarPR2 extends javax.swing.JPanel {
         LabelCapacidad2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelCapacidad2.setForeground(new java.awt.Color(76, 168, 207));
         LabelCapacidad2.setText("(en dias)");
-        PanelActualizarPR.add(LabelCapacidad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        PanelActualizarPR.add(LabelCapacidad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         LabelCapacidad1.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         LabelCapacidad1.setForeground(new java.awt.Color(76, 168, 207));
@@ -199,6 +208,13 @@ public class ActualizarPR2 extends javax.swing.JPanel {
         LabelCapacidad1.setMaximumSize(new java.awt.Dimension(100, 40));
         LabelCapacidad1.setPreferredSize(new java.awt.Dimension(100, 40));
         PanelActualizarPR.add(LabelCapacidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 140, -1));
+
+        LabelID.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        LabelID.setForeground(new java.awt.Color(76, 168, 207));
+        LabelID.setText("Identificador:");
+        LabelID.setMaximumSize(new java.awt.Dimension(100, 40));
+        LabelID.setPreferredSize(new java.awt.Dimension(100, 40));
+        PanelActualizarPR.add(LabelID, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 140, -1));
 
         LabelCapacidad4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         LabelCapacidad4.setForeground(new java.awt.Color(76, 168, 207));
@@ -216,6 +232,18 @@ public class ActualizarPR2 extends javax.swing.JPanel {
             }
         });
         PanelActualizarPR.add(FieldCapacidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, 30));
+
+        FieldIdentificador.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        FieldIdentificador.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        FieldIdentificador.setBorder(null);
+        FieldIdentificador.setMaximumSize(new java.awt.Dimension(140, 35));
+        FieldIdentificador.setPreferredSize(new java.awt.Dimension(140, 35));
+        FieldIdentificador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldIdentificadorActionPerformed(evt);
+            }
+        });
+        PanelActualizarPR.add(FieldIdentificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, 30));
 
         LabelErrorCapacidad1.setForeground(new java.awt.Color(255, 0, 0));
         LabelErrorCapacidad1.setText("jLabel1");
@@ -269,6 +297,10 @@ public class ActualizarPR2 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_FieldCapacidad1ActionPerformed
 
+    private void FieldIdentificadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldIdentificadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldIdentificadorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarButton;
@@ -276,6 +308,7 @@ public class ActualizarPR2 extends javax.swing.JPanel {
     private javax.swing.JTextField FieldCapacidad1;
     private javax.swing.JTextField FieldCiudad;
     private javax.swing.JTextField FieldDireccion;
+    private javax.swing.JTextField FieldIdentificador;
     private javax.swing.JTextField FieldTReciclaje;
     private javax.swing.JTextField FieldVaciado;
     private javax.swing.JLabel LabelCapacidad1;
@@ -288,6 +321,7 @@ public class ActualizarPR2 extends javax.swing.JPanel {
     private javax.swing.JLabel LabelErrorDireccion;
     private javax.swing.JLabel LabelErrorID;
     private javax.swing.JLabel LabelErrorTR;
+    private javax.swing.JLabel LabelID;
     private javax.swing.JLabel LabelPeriodoV;
     private javax.swing.JLabel LabelTReciclaje;
     private javax.swing.JPanel PanelActualizarPR;
