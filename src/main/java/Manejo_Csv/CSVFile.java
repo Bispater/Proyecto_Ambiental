@@ -4,8 +4,6 @@ import Usuarios.Admin;
 
 import javax.swing.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CSVFile {
 
@@ -15,24 +13,29 @@ public class CSVFile {
 
     public void writeCSV(String file, String[] header ){
         try {
-            /*
-            This function write into CSV file. Receive a string with name file, an index and a number that will be saved.
-             */
-            System.out.println(file);
             FileWriter writer = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
-            printWriter.println(header[0] + ";" + header[1]);
-            //System.out.println(header);
+            printWriter.println(header[0] + ";" + header[1] + ";" + header[2] + ";" + header[3]);
             printWriter.flush();
             printWriter.close();
-
-            //JOptionPane.showMessageDialog(null, "File Saved");
         }catch (IOException e){
             System.out.println(e);
         }
     }
 
+    public void escribirAdminCSV(String file, String[] header ){
+        try {
+            FileWriter writer = new FileWriter(file, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            PrintWriter printWriter = new PrintWriter(bufferedWriter);
+            printWriter.println(header[0] + ";" + header[1] + ";" + header[2] + ";" + header[3]);
+            printWriter.flush();
+            printWriter.close();
+        }catch (IOException e){
+            System.out.println(e);
+        }
+    }
     public void leerArchivo(String nombreArchivo) {
         try {
             lector = new BufferedReader(new FileReader(nombreArchivo));
@@ -50,40 +53,25 @@ public class CSVFile {
         }
     }
 
+    public int cantidadFilasCSV(String file) {
+        int contadorLineas = 0;
+        try {
+            BufferedReader archivo = new BufferedReader(new FileReader(file));
+            contadorLineas = 0;
+            String linea = archivo.readLine();
+            while (linea != null) {
+                contadorLineas++;
+            }
+            archivo.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return contadorLineas;
+    }
+
     public void imprimirLinea(String partes[]) {
         for (int i = 0; i < partes.length; i++) {
             System.out.print(partes[i] + "  |  ");
         }
     }
-
-    /*public ArrayList arrayText(String direccion, int cantL) { //Sin terminar OJO
-        ArrayList<Admin> administradores = new ArrayList<>();
-        administradores = null;
-        try {
-            lector = new BufferedReader(new FileReader(direccion));
-            while ((linea = lector.readLine()) != null) {
-                partes = linea.split(",");
-                if(partes.length == cantL)
-                {
-
-
-                   int id = Integer.parseInt(partes[2])
-                    Admin adminNuevo = new Admin(partes[0] , partes[1] , id , partes[3] );
-
-
-                }
-
-            }
-            lector.close();
-            linea = null;
-            partes = null;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-
-        }
-        return administradores ;
-    }
-*/
-
-
 }

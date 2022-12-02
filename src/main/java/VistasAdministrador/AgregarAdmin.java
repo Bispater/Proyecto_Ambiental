@@ -4,6 +4,12 @@
  */
 package VistasAdministrador;
 
+import Usuarios.Admin;
+import VistaMain.AdminFuncion;
+
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *
  * @author Byron
@@ -209,11 +215,57 @@ public class AgregarAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_FieldIDActionPerformed
 
     private void AgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButtonActionPerformed
-        /*
-        VALIDAR QUE SE HAYAN INGRESADO BIEN LOS DATOS --> Funciones de la clase
-        */
+
+        //VALIDAR QUE SE HAYAN INGRESADO BIEN LOS DATOS --> Funciones de la clase
+        if (validarCampos()){
+            System.out.println("SE VALIDARON TODOS LOS CAMPOS");
+            //LOS NUEVOS DATOS DEL ADMIN SE DEJAN EN UN ARREGLO
+            String[] datosAdministrador = new String[4];
+            datosAdministrador[0] = FieldName4.getText();
+            datosAdministrador[1] = FieldRut.getText();
+            datosAdministrador[2] = FieldID.getText();
+            datosAdministrador[3] = FieldPass.getText();
+            //SE INSTANCIA EL ARREGLO Y SE LLAMA AL MÉTODO QUE DEJA LOS DATOS EN CSV
+            Admin nuevoAdmin = new Admin();
+            // SE LLAMA AL MÉTODO Y LE PASAMOS EL ARREGLO CON LOS DATOS DEL TEXFIELD
+            // SI NOS DEVUELVE TRUE ES QUE HEMOS ESCRITO EN EL CSV.
+            if(nuevoAdmin.crearAdmin(datosAdministrador)){
+                JOptionPane.showMessageDialog(null, "Se agregó el nuevo administrador con éxito");
+                new AdminFuncion().setVisible(true);
+                JComponent comp = (JComponent) evt.getSource();
+                Window win = SwingUtilities.getWindowAncestor(comp);
+                win.dispose();
+            };
+        };
     }//GEN-LAST:event_AgregarButtonActionPerformed
 
+
+    public boolean validarCampos() {
+        //MODIFICAR RETROALIMENTACIÓN !!!!
+        String Nombre = FieldName4.getText();
+        if(!Nombre.matches("([a-zA-Z]*[ ']+[a-zA-Z]*)*+")){
+            JOptionPane.showMessageDialog(null,"El nombre ingresado es incorrecto");
+            return false;
+        }
+        String Rut = FieldRut.getText();
+        if(!Rut.matches("[0-9]*[-'][0-9]")){
+            JOptionPane.showMessageDialog(null,"Debe escribir números con guión y dígito verificador");
+            return false;
+        }
+        String Id = FieldID.getText();
+        if(!Id.matches("[0-9]*+")){
+            JOptionPane.showMessageDialog(null,"Deben ser sólo datos numéricos");
+            return false;
+        }
+        String contrasenia = FieldPass.getText();
+        if(!contrasenia.matches("([a-zA-Z]*+[0-9]*)+")){
+            JOptionPane.showMessageDialog(null,"Debe recibir al menos una letra y un número");
+            return false;
+        }
+
+        return true;
+    }
+    // End of variables declaration//GEN-END:variables
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarButton;
@@ -232,5 +284,6 @@ public class AgregarAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel TextPass;
     private javax.swing.JLabel TextRut;
     private javax.swing.JLabel Titulo;
-    // End of variables declaration//GEN-END:variables
+
+
 }

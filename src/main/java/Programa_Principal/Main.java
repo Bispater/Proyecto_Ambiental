@@ -1,12 +1,10 @@
 package Programa_Principal;
 import Manejo_Csv.CSVFile;
-import Manejo_Csv.CSVManage;
 import Usuarios.Admin;
 import Usuarios.Usuario;
 import VistaMain.Principal;
 
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -57,7 +55,7 @@ public class Main {
             try {
                 switch (opcion) {
                     case 1:
-                        adminDefecto.MenuAdministrador();
+                        //adminDefecto.MenuAdministrador();
                         break;
                     case 2:
                         usuarioDefecto.MenuUsuario();
