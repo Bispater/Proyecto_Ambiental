@@ -4,6 +4,12 @@
  */
 package VistasAdministrador;
 
+import Manejo_Csv.CSVFile;
+import VistaMain.AdminFuncion;
+
+import javax.swing.*;
+import java.awt.*;
+
 public class CambiarPassword extends javax.swing.JPanel {
 
     public CambiarPassword() {
@@ -149,12 +155,62 @@ public class CambiarPassword extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CambiarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarButtonActionPerformed
-        /*
-        VALIDAR QUE SE HAYAN INGRESADO BIEN LOS DATOS --> Funciones de la clase
-        Mostrar showDialog
-        */
-        
+         //VALIDAR QUE SE HAYAN INGRESADO BIEN LOS DATOS --> Funciones de la clase
+         if (ValidarCampos()){
+            System.out.println("SE VALIDARON TODOS LOS CAMPOS PARA CAMBIAR LA CONTRASEÑA");
+             if (comprobarAdmin(FieldID.getText(), FielPassActual.getText()) ) {
+                 System.out.println("EL ADMINISTRADOR EXISTE!");
+                 CambiarContraseniaCSV(FieldID.getText(), FieldPassNew.getText());
+                 System.out.println("SE VALIDÓ EL ADMINISTRADOR PARA CAMBIAR LA CONTRASEÑA");
+                 JOptionPane.showMessageDialog(null, "Se cambió la contraseña con éxito");
+
+                 new AdminFuncion().setVisible(true);
+                 JComponent comp = (JComponent) evt.getSource();
+                 Window win = SwingUtilities.getWindowAncestor(comp);
+                 win.dispose();
+             }
+        }
     }//GEN-LAST:event_CambiarButtonActionPerformed
+    public boolean ValidarCampos() {
+        //MODIFICAR RETROALIMENTACIÓN !!!!
+        String identificador = FieldID.getText();
+        String contraseniaActual = FielPassActual.getText();
+        String contraseniaNueva = FieldPassNew.getText();
+
+        if(!identificador.matches("[0-9]*+")){
+            JOptionPane.showMessageDialog(null,"ERROR: El campo Identificador permite sólo numeros");
+            return false;
+        }
+
+        if(!contraseniaActual.matches("([a-zA-Z]*+[0-9]*)+")){
+            JOptionPane.showMessageDialog(null,"ERROR: El campo contraseña Actual permite sólo letras y números");
+            return false;
+        }
+        if(!contraseniaNueva.matches("([a-zA-Z]*+[0-9]*)+")){
+            JOptionPane.showMessageDialog(null,"ERROR: El campo Contraseña Nueva permite sólo letras y números");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean comprobarAdmin(String identificador, String contraseniaActual) {
+        //buscar en csv que el id y la contraseña existan.
+        try {
+            CSVFile admin = new CSVFile();
+            if (admin.comprobarAdminCSV("src/main/resources/administrador/CSVadmin.csv", identificador, contraseniaActual)){
+                return true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+        return false;
+    }
+
+    public void CambiarContraseniaCSV(String identificador, String nuevaContrasenia) {
+        System.out.println("CAMBIANDO CONTRASEÑA...");
+        //cambiar contraseña por id desde el CSV.
+    }
 
     private void FieldIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldIDActionPerformed
         // TODO add your handling code here:

@@ -77,20 +77,13 @@ public class Admin extends PersonaVirtual {
     }
 
     public void updateArrayListfromCSV (String linea){
-        System.out.println("inside update");
-
         String[] partesDeLinea = linea.split("[;]", 0);
-
         String nombreAdmin = partesDeLinea[0];
         String runAdmin = partesDeLinea[1];
         String idAdmin = partesDeLinea[2];
-        System.out.println("atributos creados");
-
         String contraseniaAdmin = partesDeLinea[3];
-        System.out.println("antes de instanciar nuevo admin");
         Admin nuevoAdmin = new Admin(nombreAdmin, runAdmin, idAdmin, contraseniaAdmin);
         administradores.add(nuevoAdmin);
-        System.out.println("admin añadido");
     }
     public boolean validarIdAdmin(String id){
         System.out.println("DATO DESDE FIELD ID: " + id);
